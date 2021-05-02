@@ -1,0 +1,31 @@
+#User data for installing Docker and Docker-compose on Ubuntu 18.04
+
+#!/bin/bash
+sudo apt-get update -y
+
+#Next step is for  installing a few prerequisite packages which let apt use packages over HTTPS:
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+
+#adding the GPG key for the official Docker repository to your system
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+#Adding the Docker repository to APT sources
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+
+sudo apt-get update
+
+# Making sure that we are about to install from the Docker repo instead of the default Ubuntu repo[can skip this command]
+sudo apt-cache policy docker-ce
+
+#installing Docker
+sudo apt-get install docker-ce -y
+
+#this command is used to download the current stable release of Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+#Apply executable permissions to the binary
+sudo chmod +x /usr/local/bin/docker-compose
+
+#docker status checking
+sudo systemctl status docker
