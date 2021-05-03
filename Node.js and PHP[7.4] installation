@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Refreshing the local package
+sudo apt update -y
+
+#Installing the Node.js from the repositories
+sudo apt install nodejs -y
+
+#installing the npm, the Node.js package manager
+sudo apt install npm -y
+
+#Refreshing the local package
+sudo apt-get update -y
+
+#installing the software-properties-common , this Command adds the management for additional software sources
+sudo apt -y install software-properties-common
+
+#installing the repository ppa:ondrej/php, this command will give you all your versions of PHP
+sudo add-apt-repository ppa:ondrej/php -y
+
+#Refreshing the local package
+sudo apt-get update -y
+
+#Installing the php7.4 version
+sudo apt -y install php7.4
