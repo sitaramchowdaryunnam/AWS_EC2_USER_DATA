@@ -1,6 +1,8 @@
 #User data for installing Docker and Docker-compose on Ubuntu 18.04
 
 #!/bin/bash
+
+#updating the local repository
 sudo apt-get update -y
 
 #Next step is for  installing a few prerequisite packages which let apt use packages over HTTPS:
@@ -12,7 +14,7 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add 
 #Adding the Docker repository to APT sources
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 
-
+#updating the repository
 sudo apt-get update
 
 # Making sure that we are about to install from the Docker repo instead of the default Ubuntu repo[can skip this command]
