@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# updating the instance
+sudo apt-get update -y
+
+# Installing the java for the jenkins
+sudo apt install openjdk-8-jdk -y 
+
+# Adding the key for jenkins to install
+sudo wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+# Adding jenkins packages to the instance 
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+# updating the Instance
+sudo apt update -y
+
+# installing the jenkins
+sudo apt install jenkins -y
+
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
